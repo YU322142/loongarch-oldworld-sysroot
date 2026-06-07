@@ -13,10 +13,10 @@ The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the repository metadata files.
 
 This license applies only to files committed directly to this repository. It
-does not apply to sysroot archives published as release assets, nor to files
-extracted from those archives. Sysroot archives are aggregates of third-party
-software packages, and every file inside them remains under its original
-upstream or distribution package license.
+does not apply to sysroot or toolchain archives published as release assets,
+nor to files extracted from those archives. Release archives are aggregates of
+third-party software packages, and every file inside them remains under its
+original upstream or distribution package license.
 
 THE REPOSITORY METADATA FILES ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
 KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
