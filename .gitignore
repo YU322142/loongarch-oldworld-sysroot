@@ -1,0 +1,5 @@
+artifacts/
+*.tar
+*.tar.gz
+*.tar.xz
+*.zip
