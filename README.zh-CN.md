@@ -4,9 +4,20 @@ English documentation: [README.md](README.md).
 
 本仓库通过 GitHub Release 发布 LoongArch 旧世界 ABI1.0 构建资产，用于 ClassIsland 等项目在 GitHub Actions 中交叉编译旧世界原生库。
 
-sysroot 压缩包是“构建用 sysroot”，不是可直接启动的根文件系统。它包含旧世界 LoongArch 开发头文件和库，包括 fontconfig、FreeType、X11、OpenGL、Vulkan、libc 以及相关开发文件。
+sysroot 压缩包是“构建用 sysroot”，不是可直接启动的根文件系统。它来自本次适配使用的旧世界 Loongnix/LoongArch 开发环境，包含旧世界 LoongArch 开发头文件和库，包括 fontconfig、FreeType、X11、OpenGL、Vulkan、libc 以及相关开发文件。
 
-工具链压缩包是与该 sysroot 匹配的 Linux x64 交叉编译工具链。将工具链和 sysroot 一起固定，可以避免误用较新的公开 cross-tools sysroot 或 GCC include-fixed 头文件。
+工具链压缩包是与该 sysroot 匹配的 Linux x64 交叉编译工具链。它不是本仓库自研的编译器，而是为了 GitHub Actions 可复现构建而固定/重新打包的第三方 LoongArch 旧世界交叉工具链聚合包。压缩包内包含 `share/loongarch64-unknown-linux-gnu-ct-ng.config.bz2`，以及 GCC、binutils、glibc、crosstool-NG 等组件的许可证文件。这类工具链的参考项目是 [loong64/cross-tools](https://github.com/loong64/cross-tools)。
+
+将工具链和 sysroot 一起固定，可以避免误用较新的公开 cross-tools sysroot 或 GCC include-fixed 头文件。
+
+## 资产来源边界
+
+本仓库是 ClassIsland 支持库 Actions workflow 所用旧世界构建资产的固定发布点，不表示本仓库是编译器、libc、系统头文件、X11/OpenGL/Vulkan 库或其它第三方软件包的作者。
+
+- 工具链：固定的 Linux x64 LoongArch 旧世界 GCC 14 交叉工具链聚合包，基于 crosstool-NG 体系，压缩包内保留各组件许可证。
+- sysroot：为了编译和链接桌面原生库而整理的旧世界 Loongnix/LoongArch 开发 sysroot，不是可启动系统镜像。
+- 仓库文件：README、元数据和辅助说明使用本仓库 MIT License。
+- Release 资产：压缩包内部文件仍遵循其原上游项目或发行版软件包许可证。
 
 ## 当前发布
 

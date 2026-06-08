@@ -4,9 +4,20 @@
 
 This repository publishes LoongArch old-world ABI1.0 build assets as GitHub release assets. It is intended for online cross-builds of native libraries used by ClassIsland on Loongnix 20 old-world ABI1.0.
 
-The sysroot archive is a build sysroot, not a runnable root filesystem. It contains old-world LoongArch headers and libraries needed by desktop native builds, including fontconfig, FreeType, X11, OpenGL, Vulkan, libc and related development files.
+The sysroot archive is a build sysroot, not a runnable root filesystem. It was collected from the old-world Loongnix/LoongArch development environment used for this adaptation and contains old-world LoongArch headers and libraries needed by desktop native builds, including fontconfig, FreeType, X11, OpenGL, Vulkan, libc and related development files.
 
-The toolchain archive is the matching Linux x64 cross toolchain used with this sysroot. Keeping the toolchain and sysroot together avoids accidental mixing with newer public cross-tools sysroots or GCC include-fixed headers.
+The toolchain archive is the matching Linux x64 cross toolchain used with this sysroot. It is not a compiler written by this repository; it is a pinned/repacked third-party LoongArch old-world cross-toolchain aggregate for GitHub Actions. The archive contains crosstool-NG metadata at `share/loongarch64-unknown-linux-gnu-ct-ng.config.bz2` and component licenses for GCC, binutils, glibc, crosstool-NG and related packages. The reference project for this style of toolchain is [loong64/cross-tools](https://github.com/loong64/cross-tools).
+
+Keeping the toolchain and sysroot together avoids accidental mixing with newer public cross-tools sysroots or GCC include-fixed headers.
+
+## Asset source boundary
+
+This repository is the distribution point for the exact old-world build assets used by the ClassIsland native-library Actions workflows. It does not claim authorship of the compiler, libc, system headers, X11/OpenGL/Vulkan libraries, or other third-party packages inside the archives.
+
+- Toolchain: pinned Linux x64 LoongArch old-world GCC 14 cross-toolchain aggregate, crosstool-NG based, with per-component licenses kept inside the archive.
+- Sysroot: old-world Loongnix/LoongArch development sysroot assembled for building and linking native desktop libraries, not for booting or running as an OS image.
+- Repository files: README, metadata, and helper documentation in this repository are under this repository's MIT license.
+- Release assets: the archive contents stay under their original upstream/distribution package licenses.
 
 ## Current release
 
